@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app'
-import { getFirestore, doc, setDoc, collection } from 'firebase/firestore'
+import { getFirestore, addDoc, collection } from 'firebase/firestore'
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDF5LFEC8AS3vZKV9iWNqXwESE1Tgo7b6g',
@@ -15,10 +15,11 @@ export const db = getFirestore(app)
 
 //Ajouter document
 
-export const addDoc = async (data) => {
+export const addDocument = async (data) => {
   const dbInstance = collection(db, 'utilisateur')
   try {
-    await setDoc(dbInstance, data)
+    const value = await addDoc(dbInstance, data)
+    console.log(value)
   } catch (error) {
     console.log(error)
   }

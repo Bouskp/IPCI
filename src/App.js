@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import { addDoc } from './firebase/initialize'
+import { addDocument } from './firebase/initialize'
 
 function App() {
   const inputRef = useRef(null)
@@ -17,7 +17,7 @@ function App() {
       pays: 'Italie',
       prenom: 'Lucien',
     }
-    await addDoc(data)
+    await addDocument(data)
   }
   return (
     <div>
